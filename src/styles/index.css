@@ -1,0 +1,10 @@
+@font-face {
+  font-family: "Bebas";
+  src: url("../fonts/Bebas/Bebas-Regular.ttf") format("truetype");
+  font-weight: normal;
+}
+
+body {
+  font-family: "Bebas";
+  margin: 0px;
+}
