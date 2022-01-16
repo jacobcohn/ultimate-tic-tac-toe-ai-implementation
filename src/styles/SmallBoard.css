@@ -20,3 +20,11 @@
   align-items: center;
   justify-content: center;
 }
+
+.white {
+  background-color: #ffffff;
+}
+
+.red {
+  background-color: rgba(255, 0, 0, 0.5) !important;
+}
