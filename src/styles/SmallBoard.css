@@ -1,0 +1,22 @@
+.smallBoard {
+  margin: 10px;
+  background-color: #101119;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-template-rows: repeat(3, 1fr);
+  grid-gap: 2px;
+}
+
+.smallTile {
+  width: min(6vw, 6vh);
+  height: min(6vw, 6vh);
+  min-width: 30px;
+  max-width: 60px;
+  min-height: 30px;
+  max-height: 60px;
+
+  background-color: #ffffff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}

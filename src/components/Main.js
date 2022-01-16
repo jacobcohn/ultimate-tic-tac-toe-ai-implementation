@@ -1,10 +1,11 @@
 import React from "react";
+import BigBoard from "./game/BigBoard"
 import "../styles/Main.css";
 
 const Main = () => {
   return (
     <div className="main">
-      <h1>main</h1>
+      <BigBoard></BigBoard>
     </div>
   );
 }

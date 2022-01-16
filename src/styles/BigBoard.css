@@ -1,0 +1,14 @@
+.bigBoard {
+  background-color: #101119;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-template-rows: repeat(3, 1fr);
+  grid-gap: 6px;
+}
+
+.bigTile {
+  background-color: #ffffff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}

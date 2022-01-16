@@ -6,5 +6,5 @@
 }
 
 .headerText {
-  font-size: 90px;
+  font-size: min(11vw, 100px);
 }
