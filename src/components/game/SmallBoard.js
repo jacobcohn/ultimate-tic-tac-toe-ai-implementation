@@ -1,12 +1,35 @@
 import React from "react";
 import "../../styles/SmallBoard.css";
 
-const SmallBoard = () => {
+const SmallBoard = ({ onClick, board, boardNumber}) => {
+  const getMoveElement = (position) => {
+    return (
+      <div className="smallTile" key={position}>
+        <h1>{board[position]}</h1>
+      </div>
+    );
+  };
+
+  const getBlankElement = (position) => {
+    return (
+      <div 
+        className="smallTile" 
+        key={position} 
+        onClick={() => onClick(boardNumber, position)}
+      ></div>
+    );
+  };
+  
+  const getElement = (position) => {
+    if (board[position] !== "") return getMoveElement(position);
+    return getBlankElement(position);
+  }; 
+  
   const getSquares = () => {
     const squares = [];
 
     for (let i = 0; i < 9; i += 1) {
-      squares.push(<div className="smallTile" key={i}></div>);
+      squares.push(getElement(i));
     }
 
     return squares;
