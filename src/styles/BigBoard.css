@@ -12,3 +12,11 @@
   align-items: center;
   justify-content: center;
 }
+
+.white {
+  background-color: #ffffff;
+}
+
+.green {
+  background-color: rgba(0, 255, 0, 0.5) !important;
+}

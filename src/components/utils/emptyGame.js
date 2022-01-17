@@ -1,5 +1,5 @@
 const emptyGame = {
-  turn: "X",
+  player: "X",
   currentBoard: null,
   lastMove: {
     bigBoardPosition: null,
@@ -7,6 +7,7 @@ const emptyGame = {
   },
   board: {
     0: {
+      winner: "",
       0: "",
       1: "",
       2: "",
@@ -18,6 +19,7 @@ const emptyGame = {
       8: "",
     },
     1: {
+      winner: "",
       0: "",
       1: "",
       2: "",
@@ -29,6 +31,7 @@ const emptyGame = {
       8: "",
     },
     2: {
+      winner: "",
       0: "",
       1: "",
       2: "",
@@ -40,6 +43,7 @@ const emptyGame = {
       8: "",
     },
     3: {
+      winner: "",
       0: "",
       1: "",
       2: "",
@@ -51,6 +55,7 @@ const emptyGame = {
       8: "",
     },
     4: {
+      winner: "",
       0: "",
       1: "",
       2: "",
@@ -62,6 +67,7 @@ const emptyGame = {
       8: "",
     },
     5: {
+      winner: "",
       0: "",
       1: "",
       2: "",
@@ -73,6 +79,7 @@ const emptyGame = {
       8: "",
     },
     6: {
+      winner: "",
       0: "",
       1: "",
       2: "",
@@ -84,6 +91,7 @@ const emptyGame = {
       8: "",
     },
     7: {
+      winner: "",
       0: "",
       1: "",
       2: "",
@@ -95,6 +103,7 @@ const emptyGame = {
       8: "",
     },
     8: {
+      winner: "",
       0: "",
       1: "",
       2: "",
