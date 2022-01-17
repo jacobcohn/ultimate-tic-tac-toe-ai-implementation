@@ -6,6 +6,15 @@ import getTicTacToeStatus from "./utils/getTicTacToeStatus";
 import "../styles/Main.css";
 
 const Main = () => {
+  // const [currentPlayer, setCurrentPlayer] = useState("X");
+  // const [lastMove, setLastMove] = useState({
+  //   bigBoardPosition: null,
+  //   smallBoardPosition: null,
+  // });
+  // const [smallBoards, setSmallBoards] = useState(emptyGame.board);
+  // const [bigBoard, setBigBoard] = useState(emptyGame.board[0]);
+  // const [winner, setWinner] = useState("");
+
   const [game, setGame] = useState(emptyGame);
 
   const updateGame = (bigBoardPosition, smallBoardPosition) => {
@@ -28,6 +37,10 @@ const Main = () => {
         },
       },
     }));
+
+    // updateCurrentPlayer();
+    // updateLastMove();
+    // updateSmallBoards();
   };
 
   const handleNewMove = (bigBoardPosition, smallBoardPosition) => {
