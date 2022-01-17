@@ -102,8 +102,14 @@ const emptySmallBoardData = {
   },
 };
 
+const emptyLastMove = {
+  smallBoardPosition: null,
+  bigBoardPosition: null,
+};
+
 const useSmallBoardData = (currentPlayer) => {
   const [smallBoardData, setSmallBoardData] = useState(emptySmallBoardData);
+  const [lastMove, setLastMove] = useState(emptyLastMove);
 
   const updateSmallBoardData = (bigBoardPosition, smallBoardPosition) => {
     setSmallBoardData((prevSmallBoardData) => ({
@@ -113,9 +119,14 @@ const useSmallBoardData = (currentPlayer) => {
         [smallBoardPosition]: currentPlayer,
       },
     }));
+
+    setLastMove({
+      smallBoardPosition,
+      bigBoardPosition,
+    });
   };
 
-  return [smallBoardData, updateSmallBoardData];
+  return [smallBoardData, lastMove, updateSmallBoardData];
 };
 
 export default useSmallBoardData;
