@@ -54,6 +54,7 @@ const areAllSpacesTaken = (board) => {
 };
 
 const getTicTacToeStatus = (board) => {
+  if (board === null || board === undefined) return "";
   if (isWinForPlayer(board, "X")) return "X";
   if (isWinForPlayer(board, "O")) return "O";
   if (areAllSpacesTaken(board)) return " ";

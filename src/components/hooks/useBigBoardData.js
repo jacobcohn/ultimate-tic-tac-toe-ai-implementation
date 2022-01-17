@@ -18,6 +18,8 @@ const useBigBoardData = (lastMove, smallBoardData) => {
 
   useEffect(() => {
     const bigBoardPosition = lastMove.bigBoardPosition;
+    if (bigBoardPosition === null || bigBoardPosition === undefined) return;
+    
     const ticTacToeStatus = getTicTacToeStatus(smallBoardData[bigBoardPosition]);
     setBigBoardData((prevBigBoardData) => ({
       ...prevBigBoardData,

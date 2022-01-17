@@ -3,17 +3,17 @@ import BigBoard from "./game/BigBoard"
 import emptyGame from "./utils/emptyGame";
 import isValidBigBoardBox from "./utils/isValidBigBoardBox";
 import getTicTacToeStatus from "./utils/getTicTacToeStatus";
+import useCurrentPlayer from "./hooks/useCurrentPlayer";
+import useSmallBoardData from "./hooks/useSmallBoardData";
+import useBigBoardData from "./hooks/useBigBoardData";
+import useWinner from "./hooks/useWinner";
 import "../styles/Main.css";
 
 const Main = () => {
-  // const [currentPlayer, setCurrentPlayer] = useState("X");
-  // const [lastMove, setLastMove] = useState({
-  //   bigBoardPosition: null,
-  //   smallBoardPosition: null,
-  // });
-  // const [smallBoards, setSmallBoards] = useState(emptyGame.board);
-  // const [bigBoard, setBigBoard] = useState(emptyGame.board[0]);
-  // const [winner, setWinner] = useState("");
+  const [currentPlayer, updateCurrentPlayer] = useCurrentPlayer("X");
+  const [lastMove, smallBoardData, updateSmallBoardData] = useSmallBoardData(currentPlayer);
+  const bigBoardData = useBigBoardData(lastMove, smallBoardData);
+  const winner = useWinner(bigBoardData);
 
   const [game, setGame] = useState(emptyGame);
 
@@ -38,9 +38,8 @@ const Main = () => {
       },
     }));
 
-    // updateCurrentPlayer();
-    // updateLastMove();
-    // updateSmallBoards();
+    updateSmallBoardData(bigBoardPosition, smallBoardPosition);
+    updateCurrentPlayer();
   };
 
   const handleNewMove = (bigBoardPosition, smallBoardPosition) => {
