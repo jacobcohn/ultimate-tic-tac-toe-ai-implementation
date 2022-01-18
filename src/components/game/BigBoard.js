@@ -1,5 +1,6 @@
 import React from "react";
 import SmallBoard from "./SmallBoard";
+import HoverTile from "./HoverTile";
 import "../../styles/BigBoard.css";
 
 const BigBoard = ({ onClick, lastMove, smallBoardData, bigBoardData, isHighlighted }) => {
@@ -28,11 +29,25 @@ const BigBoard = ({ onClick, lastMove, smallBoardData, bigBoardData, isHighlight
     );
   };
 
-  const getMoveElement = (position) => {
+  const getHoverTile = (position) => {
+    return (
+      <HoverTile
+        key={position}
+        onClick={onClick}
+        smallBoard={smallBoardData[position]} 
+        boardNumber={position}
+        lastMove={lastMove}
+        isHighlighted={isHighlighted}
+        bigBoardStatus={bigBoardData[position]}
+      />
+    );
+  };
+
+  const getHoverElement = (position) => {
     return (
       <div className="white" key={position}>
         <div className="bigTile" key={position}>
-          <h1 className="" key={position}>{bigBoardData[position]}</h1>
+          {getHoverTile(position)}
         </div>
       </div>
     );
@@ -40,7 +55,7 @@ const BigBoard = ({ onClick, lastMove, smallBoardData, bigBoardData, isHighlight
 
   const getOneElement = (position) => {
     if (bigBoardData[position] === "") return getTicTacToeElement(position);
-    return getMoveElement(position);
+    return getHoverElement(position);
   };
 
   const getAllElements = () => {
