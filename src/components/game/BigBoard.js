@@ -3,7 +3,7 @@ import SmallBoard from "./SmallBoard";
 import HoverTile from "./HoverTile";
 import "../../styles/BigBoard.css";
 
-const BigBoard = ({ onClick, lastMove, smallBoardData, bigBoardData, isHighlighted }) => {
+const BigBoard = ({ onClick, lastMove, smallBoardData, bigBoardData, validBigBoardData }) => {
   const getSmallBoard = (position) => {
     return (
       <SmallBoard 
@@ -12,10 +12,12 @@ const BigBoard = ({ onClick, lastMove, smallBoardData, bigBoardData, isHighlight
         board={smallBoardData[position]} 
         boardNumber={position}
         lastMove={lastMove}
-        isHighlighted={isHighlighted}
+        isValidBigBoardPosition={validBigBoardData[position]}
       />
     );
   };
+
+  const isHighlighted = (position) => validBigBoardData[position];
 
   const getTicTacToeElement = (position) => {
     const getClassName = (position) => `bigTile ${(isHighlighted(position)) ? "green" : "" }`;
@@ -37,7 +39,7 @@ const BigBoard = ({ onClick, lastMove, smallBoardData, bigBoardData, isHighlight
         smallBoard={smallBoardData[position]} 
         boardNumber={position}
         lastMove={lastMove}
-        isHighlighted={isHighlighted}
+        isValidBigBoardPosition={validBigBoardData[position]}
         bigBoardStatus={bigBoardData[position]}
       />
     );

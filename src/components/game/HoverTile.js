@@ -2,8 +2,8 @@ import React, { useState } from "react";
 import SmallBoard from "./SmallBoard";
 import "../../styles/HoverTile.css";
 
-const HoverTile = ({ onClick, smallBoard, boardNumber, lastMove, isHighlighted, bigBoardStatus }) => {
-  const [isHovering, setIsHovering] = useState(false);
+const HoverTile = ({ onClick, smallBoard, boardNumber, lastMove, isValidBigBoardPosition, bigBoardStatus }) => {
+  const [isHovering, setIsHovering] = useState(true);
   const onMouseEnter = () => setIsHovering(true);
   const onMouseLeave = () => setIsHovering(false);
 
@@ -15,7 +15,7 @@ const HoverTile = ({ onClick, smallBoard, boardNumber, lastMove, isHighlighted, 
         board={smallBoard} 
         boardNumber={boardNumber}
         lastMove={lastMove}
-        isHighlighted={isHighlighted}
+        isValidBigBoardPosition={isValidBigBoardPosition}
       />
     );
   };

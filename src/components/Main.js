@@ -14,14 +14,14 @@ const Main = () => {
   const [smallBoardData, updateSmallBoardData] = useSmallBoardData(currentPlayer);
   const bigBoardData = useBigBoardData(lastMove, smallBoardData);
   const winner = useWinner(bigBoardData);
-  const isValidBigBoardPosition = useValidBigBoardPosition(bigBoardData, lastMove.smallBoardPosition);
+  const validBigBoardData = useValidBigBoardPosition(bigBoardData, lastMove.smallBoardPosition);
 
   useEffect(() => {
     // some code for when a winner is decided
   }, [winner]);
 
   const handleNewMove = (bigBoardPosition, smallBoardPosition) => {
-    if (!isValidBigBoardPosition(bigBoardPosition)) return;
+    if (!validBigBoardData[bigBoardPosition]) return;
     updateLastMove(bigBoardPosition, smallBoardPosition);
     updateSmallBoardData(bigBoardPosition, smallBoardPosition);
     updateCurrentPlayer();
@@ -34,7 +34,7 @@ const Main = () => {
         lastMove={lastMove}
         smallBoardData={smallBoardData}
         bigBoardData={bigBoardData}
-        isHighlighted={isValidBigBoardPosition}
+        validBigBoardData={validBigBoardData}
       />
     </div>
   );

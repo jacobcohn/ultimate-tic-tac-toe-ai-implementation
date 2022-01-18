@@ -1,6 +1,6 @@
-import { useEffect } from "react";
+import { useState, useEffect } from "react";
 
-const validBigBoardData = {
+const emptyValidBigBoardData = {
   0: true,
   1: true,
   2: true,
@@ -21,15 +21,18 @@ const isValidBigBoardPosition = (boardData, lastMovePosition, positionInQuestion
 };
 
 const useValidBigBoardPosition = (boardData, lastMovePosition) => {
+  const [validBigBoardData, setValidBigBoardData] = useState(emptyValidBigBoardData);
+
   useEffect(() => {
     for (let i = 0; i < 9; i += 1) {
-      validBigBoardData[i] = isValidBigBoardPosition(boardData, lastMovePosition, i);
+      setValidBigBoardData((prevState) => ({
+        ...prevState,
+        [i]: isValidBigBoardPosition(boardData, lastMovePosition, i),
+      }));
     };
   }, [boardData, lastMovePosition]);
 
-  const checkStatus = (position) => validBigBoardData[position];
-
-  return checkStatus;
+  return validBigBoardData;
 };
 
 export default useValidBigBoardPosition;
