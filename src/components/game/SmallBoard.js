@@ -8,7 +8,7 @@ const SmallBoard = ({ onClick, board, boardNumber, lastMove, isValidBigBoardPosi
     return (
       <div className="white" key={position}>
         <div className={getClassName(position)} key={position}>
-          <h1>{board[position]}</h1>
+          <h1 className="smallMove" key={position}>{board[position]}</h1>
         </div>
       </div>
     );

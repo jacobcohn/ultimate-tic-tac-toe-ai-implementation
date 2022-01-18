@@ -4,6 +4,12 @@
   font-weight: normal;
 }
 
+@font-face {
+  font-family: "LemonMilk";
+  src: url("../fonts/lemon_milk/LEMONMILK-Regular.otf") format("truetype");
+  font-weight: normal;
+}
+
 html {
   background-color: #DBE0E6;
 }

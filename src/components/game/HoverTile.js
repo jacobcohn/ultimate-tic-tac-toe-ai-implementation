@@ -21,7 +21,7 @@ const HoverTile = ({ onClick, smallBoard, boardNumber, lastMove, isValidBigBoard
   };
 
   const getMoveElement = () => {
-    return <h1 className={`move ${isHovering ? "hovering" : "" }`}>{bigBoardStatus}</h1>
+    return <h1 className={`bigMove ${isHovering ? "hovering" : "" }`}>{bigBoardStatus}</h1>
   };
 
   return (
