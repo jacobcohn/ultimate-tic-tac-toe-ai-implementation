@@ -1,26 +1,31 @@
 import React from "react";
 import SmallBoard from "./SmallBoard";
-import isValidBigBoardBox from "../utils/isValidBigBoardBox";
+import isValidBigBoardPosition from "../utils/isValidBigBoardPosition";
 import "../../styles/BigBoard.css";
 
-const BigBoard = ({ onClick, bigBoardData, smallBoardData, currentBoard, lastMove }) => {
+const BigBoard = ({ onClick, bigBoardData, smallBoardData, lastMove }) => {
+  const isHighlighted = (position) => isValidBigBoardPosition(bigBoardData, lastMove.smallBoardPosition, position);
+
+  const getSmallBoard = (position) => {
+    return (
+      <SmallBoard 
+        key={position}
+        onClick={onClick}
+        bigBoardData={bigBoardData}
+        board={smallBoardData[position]} 
+        boardNumber={position}
+        lastMove={lastMove}
+      />
+    );
+  };
+
   const getTicTacToeElement = (position) => {
+    const getClassName = (position) => `bigTile ${(isHighlighted(position)) ? "green" : "" }`;
+
     return (
       <div className="white" key={position}>
-        <div 
-          className={`
-            bigTile 
-            ${(isValidBigBoardBox(bigBoardData, currentBoard, position)) ? "green" : "" }
-          `} 
-          key={position}
-        >
-          <SmallBoard 
-            key={position}
-            onClick={onClick}
-            board={smallBoardData[position]} 
-            boardNumber={position}
-            lastMove={lastMove}
-          ></SmallBoard>
+        <div className={getClassName(position)} key={position}>
+          {getSmallBoard(position)}
         </div>
       </div>
     );
@@ -30,30 +35,30 @@ const BigBoard = ({ onClick, bigBoardData, smallBoardData, currentBoard, lastMov
     return (
       <div className="white" key={position}>
         <div className="bigTile" key={position}>
-          <h1 key={position}>{bigBoardData[position]}</h1>
+          <h1 className="" key={position}>{bigBoardData[position]}</h1>
         </div>
       </div>
     );
   };
 
-  const getElement = (position) => {
+  const getOneElement = (position) => {
     if (bigBoardData[position] === "") return getTicTacToeElement(position);
     return getMoveElement(position);
   };
 
-  const getSquares = () => {
-    const squares = [];
+  const getAllElements = () => {
+    const elements = [];
 
-    for (let i = 0; i < 9; i += 1) {
-      squares.push(getElement(i));
+    for (let position = 0; position < 9; position += 1) {
+      elements.push(getOneElement(position));
     }
 
-    return squares;
+    return elements;
   };
 
   return (
     <div className="bigBoard">
-      {getSquares()}
+      {getAllElements()}
     </div>
   );
 }

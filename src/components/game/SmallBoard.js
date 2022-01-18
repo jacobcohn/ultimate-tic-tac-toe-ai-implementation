@@ -1,7 +1,10 @@
 import React from "react";
+import isValidBigBoardPosition from "../utils/isValidBigBoardPosition";
 import "../../styles/SmallBoard.css";
 
-const SmallBoard = ({ onClick, board, boardNumber, lastMove}) => {
+const SmallBoard = ({ onClick, bigBoardData, board, boardNumber, lastMove}) => {
+  const isHighlighted = (position) => isValidBigBoardPosition(bigBoardData, lastMove.smallBoardPosition, position);
+
   const getMoveElement = (position) => {
     return (
       <div className="white" key={position}>
@@ -21,7 +24,7 @@ const SmallBoard = ({ onClick, board, boardNumber, lastMove}) => {
   const getBlankElement = (position) => {
     return (
       <div 
-        className="smallTile" 
+        className={`smallTile ${isHighlighted(boardNumber) ? "highlighted" : ""}`}
         key={position} 
         onClick={() => onClick(boardNumber, position)}
       ></div>

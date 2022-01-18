@@ -1,6 +1,6 @@
-import React from "react";
+import React, { useEffect } from "react";
 import BigBoard from "./game/BigBoard"
-import isValidBigBoardBox from "./utils/isValidBigBoardBox";
+import isValidBigBoardPosition from "./utils/isValidBigBoardPosition";
 import useCurrentPlayer from "./hooks/useCurrentPlayer";
 import useSmallBoardData from "./hooks/useSmallBoardData";
 import useBigBoardData from "./hooks/useBigBoardData";
@@ -13,14 +13,14 @@ const Main = () => {
   const bigBoardData = useBigBoardData(lastMove, smallBoardData);
   const winner = useWinner(bigBoardData);
 
-  const updateGame = (bigBoardPosition, smallBoardPosition) => {
-    updateSmallBoardData(bigBoardPosition, smallBoardPosition);
-    updateCurrentPlayer();
-  };
+  useEffect(() => {
+    // some code for when a winner is decided
+  }, [winner]);
 
   const handleNewMove = (bigBoardPosition, smallBoardPosition) => {
-    if (!isValidBigBoardBox(bigBoardData, lastMove.smallBoardPosition, bigBoardPosition)) return;
-    updateGame(bigBoardPosition, smallBoardPosition);
+    if (!isValidBigBoardPosition(bigBoardData, lastMove.smallBoardPosition, bigBoardPosition)) return;
+    updateSmallBoardData(bigBoardPosition, smallBoardPosition);
+    updateCurrentPlayer();
   };
 
   return (
@@ -29,9 +29,8 @@ const Main = () => {
         onClick={handleNewMove}
         bigBoardData={bigBoardData}
         smallBoardData={smallBoardData}
-        currentBoard={lastMove.smallBoardPosition}
         lastMove={lastMove}
-      ></BigBoard>
+      />
     </div>
   );
 }
