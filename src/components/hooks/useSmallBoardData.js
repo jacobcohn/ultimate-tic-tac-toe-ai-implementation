@@ -1,10 +1,5 @@
 import { useState } from "react";
 
-const emptyLastMove = {
-  smallBoardPosition: null,
-  bigBoardPosition: null,
-};
-
 const emptySmallBoardData = {
   0: {
     0: "",
@@ -108,15 +103,9 @@ const emptySmallBoardData = {
 };
 
 const useSmallBoardData = (currentPlayer) => {
-  const [lastMove, setLastMove] = useState(emptyLastMove);
   const [smallBoardData, setSmallBoardData] = useState(emptySmallBoardData);
 
   const updateSmallBoardData = (bigBoardPosition, smallBoardPosition) => {
-    setLastMove({
-      smallBoardPosition,
-      bigBoardPosition,
-    });
-    
     setSmallBoardData((prevSmallBoardData) => ({
       ...prevSmallBoardData,
       [bigBoardPosition]: {
@@ -126,7 +115,7 @@ const useSmallBoardData = (currentPlayer) => {
     }));
   };
 
-  return [lastMove, smallBoardData, updateSmallBoardData];
+  return [smallBoardData, updateSmallBoardData];
 };
 
 export default useSmallBoardData;

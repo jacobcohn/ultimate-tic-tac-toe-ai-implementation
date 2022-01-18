@@ -1,20 +1,17 @@
 import React from "react";
 import SmallBoard from "./SmallBoard";
-import isValidBigBoardPosition from "../utils/isValidBigBoardPosition";
 import "../../styles/BigBoard.css";
 
-const BigBoard = ({ onClick, bigBoardData, smallBoardData, lastMove }) => {
-  const isHighlighted = (position) => isValidBigBoardPosition(bigBoardData, lastMove.smallBoardPosition, position);
-
+const BigBoard = ({ onClick, lastMove, smallBoardData, bigBoardData, isHighlighted }) => {
   const getSmallBoard = (position) => {
     return (
       <SmallBoard 
         key={position}
         onClick={onClick}
-        bigBoardData={bigBoardData}
         board={smallBoardData[position]} 
         boardNumber={position}
         lastMove={lastMove}
+        isHighlighted={isHighlighted}
       />
     );
   };
