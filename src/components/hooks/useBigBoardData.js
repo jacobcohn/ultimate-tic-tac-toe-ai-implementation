@@ -1,5 +1,6 @@
 import { useState, useEffect } from "react";
 import getTicTacToeStatus from "../utils/getTicTacToeStatus";
+import emptySmallBoardData from "../utils/emptySmallBoardData";
 
 const emptyBigBoardData = {
   0: "",
@@ -25,8 +26,11 @@ const useBigBoardData = (lastMove, smallBoardData) => {
       ...prevBigBoardData,
       [bigBoardPosition]: ticTacToeStatus,
     }));
-
   }, [lastMove, smallBoardData]);
+
+  useEffect(() => {
+    if (smallBoardData === emptySmallBoardData) setBigBoardData(emptyBigBoardData);
+  }, [smallBoardData]);
 
   return bigBoardData;
 };

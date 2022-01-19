@@ -15,7 +15,11 @@ const useLastMove = () => {
     });
   };
 
-  return [lastMove, updateLastMove];
+  const resetLastMove = () => {
+    setLastMove(emptyLastMove);
+  };
+
+  return [lastMove, updateLastMove, resetLastMove];
 };
 
 export default useLastMove;

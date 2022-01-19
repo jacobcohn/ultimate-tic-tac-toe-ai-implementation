@@ -20,7 +20,7 @@ const BigBoard = ({ onClick, lastMove, smallBoardData, bigBoardData, validBigBoa
   const isHighlighted = (position) => validBigBoardData[position];
 
   const getTicTacToeElement = (position) => {
-    const getClassName = (position) => `bigTile ${(isHighlighted(position)) ? "green" : "" }`;
+    const getClassName = (position) => `bigTile ${(isHighlighted(position)) ? "blue" : "" }`;
 
     return (
       <div className="white" key={position}>

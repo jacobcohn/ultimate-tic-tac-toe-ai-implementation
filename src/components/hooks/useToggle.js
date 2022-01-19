@@ -7,7 +7,11 @@ const useToggle = (optionOne, optionTwo) => {
     setToggle((toggle === optionOne) ? optionTwo : optionOne);
   };
 
-  return [toggle, switchToggle];
+  const resetToggle = () => {
+    setToggle(optionOne);
+  };
+
+  return [toggle, switchToggle, resetToggle];
 };
 
 export default useToggle;

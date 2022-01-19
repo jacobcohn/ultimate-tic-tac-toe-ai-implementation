@@ -20,7 +20,7 @@ const isValidBigBoardPosition = (boardData, lastMovePosition, positionInQuestion
   return true;
 };
 
-const useValidBigBoardPosition = (boardData, lastMovePosition) => {
+const useValidBigBoardPosition = (boardData, lastMovePosition, winner) => {
   const [validBigBoardData, setValidBigBoardData] = useState(emptyValidBigBoardData);
 
   useEffect(() => {
@@ -31,6 +31,17 @@ const useValidBigBoardPosition = (boardData, lastMovePosition) => {
       }));
     };
   }, [boardData, lastMovePosition]);
+
+  useEffect(() => {
+    if (winner !== "") {
+      for (let i = 0; i < 9; i += 1) {
+        setValidBigBoardData((prevState) => ({
+          ...prevState,
+          [i]: false,
+        }));
+      }
+    }
+  }, [winner]);
 
   return validBigBoardData;
 };
