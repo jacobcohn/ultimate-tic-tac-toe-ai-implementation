@@ -1,7 +1,7 @@
 import React from "react";
 import "../../styles/SmallBoard.css";
 
-const SmallBoard = ({ onClick, board, boardNumber, lastMove, isValidBigBoardPosition }) => {
+const SmallBoard = ({ onClick, board, boardNumber, lastMove, isValidBigBoardPosition, isVisible = true }) => {
   const getMoveElement = (position) => {
     const getClassName = (position) =>  `smallTile ${(lastMove.bigBoardPosition === boardNumber && lastMove.smallBoardPosition === position) ? "red" : "" }`;
 
@@ -39,8 +39,10 @@ const SmallBoard = ({ onClick, board, boardNumber, lastMove, isValidBigBoardPosi
     return squares;
   };
 
+  console.log(isVisible);
+
   return (
-    <div className="smallBoard">
+    <div className={`smallBoard ${(isVisible) ? "" : "hidden"}`}>
       {getSquares()}
     </div>
   );

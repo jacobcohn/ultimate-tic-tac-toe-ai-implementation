@@ -7,7 +7,7 @@ const HoverTile = ({ onClick, smallBoard, boardNumber, lastMove, isValidBigBoard
   const onMouseEnter = () => setIsHovering(true);
   const onMouseLeave = () => setIsHovering(false);
 
-  const getSmallBoard = () => {
+  const getSmallBoard = ({ isVisible = true } = {}) => {
     return (
       <SmallBoard 
         key={boardNumber}
@@ -16,6 +16,7 @@ const HoverTile = ({ onClick, smallBoard, boardNumber, lastMove, isValidBigBoard
         boardNumber={boardNumber}
         lastMove={lastMove}
         isValidBigBoardPosition={isValidBigBoardPosition}
+        isVisible={isVisible}
       />
     );
   };
@@ -27,7 +28,7 @@ const HoverTile = ({ onClick, smallBoard, boardNumber, lastMove, isValidBigBoard
   return (
     <div className="hoverTile" onMouseEnter={onMouseEnter} onMouseLeave={onMouseLeave}>
       {getMoveElement()}
-      {isHovering ? getSmallBoard() : ""}
+      {isHovering ? getSmallBoard() : getSmallBoard({ isVisible: false })}
     </div>
   );
 };
