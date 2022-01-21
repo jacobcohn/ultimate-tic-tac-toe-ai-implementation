@@ -1,5 +1,6 @@
 import React from "react";
 import BigBoard from "./game/BigBoard"
+import Description from "./sideInfo/Description";
 import useToggle from "./hooks/useToggle";
 import useLastMove from "./hooks/useLastMove";
 import useSmallBoardData from "./hooks/useSmallBoardData";
@@ -39,7 +40,11 @@ const Main = () => {
         bigBoardData={bigBoardData}
         validBigBoardData={validBigBoardData}
       />
-      <button onClick={handleNewGame}>New Game</button>
+      <Description 
+        handleNewGame={handleNewGame}
+        winner={winner}
+        currentPlayer={currentPlayer}
+      />
     </div>
   );
 }
