@@ -15,7 +15,7 @@ const HowToPlay = () => {
 
   return (
     <div>
-      <p className="howToPlay">Please {getLink()} to learn about how to play and the specific rules</p>
+      <p className="howToPlay">Please {getLink()} to learn how to play</p>
     </div>
   );
 };
