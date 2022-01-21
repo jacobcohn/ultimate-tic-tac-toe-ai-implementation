@@ -12,3 +12,9 @@
     flex-direction: column;
   }
 }
+
+@media (max-device-width: 950px) {
+  .main {
+    flex-direction: column;
+  }
+}

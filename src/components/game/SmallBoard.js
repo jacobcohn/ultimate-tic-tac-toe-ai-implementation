@@ -39,8 +39,6 @@ const SmallBoard = ({ onClick, board, boardNumber, lastMove, isValidBigBoardPosi
     return squares;
   };
 
-  console.log(isVisible);
-
   return (
     <div className={`smallBoard ${(isVisible) ? "" : "hidden"}`}>
       {getSquares()}
