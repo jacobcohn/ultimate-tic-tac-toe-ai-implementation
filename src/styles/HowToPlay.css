@@ -1,0 +1,11 @@
+.howToPlay {
+  font-size: 16px;
+}
+
+.howToPlayLink {
+  color: rgba(82, 78, 183, 1);
+}
+
+.howToPlayLink:hover {
+  color: rgba(82, 78, 183, 0.7);
+}

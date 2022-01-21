@@ -2,6 +2,13 @@
   background-color: #ffffff;
   padding: 30px;
   display: flex;
+  flex-direction: row;
   align-items: center;
   justify-content: center;
+}
+
+@media (max-width: 950px) {
+  .main {
+    flex-direction: column;
+  }
 }

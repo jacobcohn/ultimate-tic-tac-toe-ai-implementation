@@ -1,4 +1,5 @@
 import React from "react";
+import "../../styles/GameStatus.css";
 
 const GameStatus = ({ winner, currentPlayer }) => {
   const displayWinner = () => {
@@ -16,7 +17,7 @@ const GameStatus = ({ winner, currentPlayer }) => {
   };
 
   return (
-    <h1>{displayGameStatus()}</h1>
+    <h1 className="gameStatus">{displayGameStatus()}</h1>
   );
 };
 

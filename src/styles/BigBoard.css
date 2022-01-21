@@ -1,4 +1,5 @@
 .bigBoard {
+  margin: 15px;
   background-color: #101119;
   display: grid;
   grid-template-columns: repeat(3, 1fr);

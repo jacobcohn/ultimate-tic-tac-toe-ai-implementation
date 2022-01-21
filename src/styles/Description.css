@@ -1,0 +1,7 @@
+.description {
+  min-width: 275px;
+  margin: 15px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
