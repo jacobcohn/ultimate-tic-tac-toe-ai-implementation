@@ -1,8 +1,9 @@
 {
-  "name": "ultimate-tic-tac-toe",
+  "name": "ultimate-tic-tac-toe-ai-implementation",
   "version": "0.1.0",
   "private": true,
   "dependencies": {
+    "@jacobcohn/ultimate-tic-tac-toe-ai": "^1.0.2",
     "@testing-library/jest-dom": "^5.16.1",
     "@testing-library/react": "^12.1.2",
     "@testing-library/user-event": "^13.5.0",

@@ -19,7 +19,7 @@ const SmallBoard = ({ onClick, board, boardNumber, lastMove, isValidBigBoardPosi
       <div 
         className={`smallTile ${isValidBigBoardPosition ? "highlighted" : ""}`}
         key={position} 
-        onClick={() => onClick(boardNumber, position)}
+        onClick={() => onClick(boardNumber, position, true)}
       ></div>
     );
   };
