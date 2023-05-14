@@ -1,0 +1,15 @@
+{
+  "files": {
+    "main.css": "/ultimate-tic-tac-toe-ai-implementation/static/css/main.3a58113d.css",
+    "main.js": "/ultimate-tic-tac-toe-ai-implementation/static/js/main.8f4f4e76.js",
+    "static/media/LEMONMILK-Regular.otf": "/ultimate-tic-tac-toe-ai-implementation/static/media/LEMONMILK-Regular.55fc24317b9c2b507dd8.otf",
+    "static/media/Bebas-Regular.ttf": "/ultimate-tic-tac-toe-ai-implementation/static/media/Bebas-Regular.90dabffdfc7cafc45f81.ttf",
+    "index.html": "/ultimate-tic-tac-toe-ai-implementation/index.html",
+    "main.3a58113d.css.map": "/ultimate-tic-tac-toe-ai-implementation/static/css/main.3a58113d.css.map",
+    "main.8f4f4e76.js.map": "/ultimate-tic-tac-toe-ai-implementation/static/js/main.8f4f4e76.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.3a58113d.css",
+    "static/js/main.8f4f4e76.js"
+  ]
+}
